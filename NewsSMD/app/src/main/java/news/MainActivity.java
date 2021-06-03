@@ -39,7 +39,6 @@ public class MainActivity extends AppCompatActivity
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
         NavigationView navigationView = findViewById(R.id.nav_view);
-      //  assert navigationView != null;
         navigationView.setNavigationItemSelectedListener(this);
         onNavigationItemSelected(navigationView.getMenu().getItem(0).setChecked(true));
         FragmentPagerAdapter pagerAdapter =

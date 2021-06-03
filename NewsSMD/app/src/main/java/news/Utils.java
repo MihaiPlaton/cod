@@ -1,7 +1,10 @@
 package news;
 
+import android.os.Build;
 import android.text.TextUtils;
 import android.util.Log;
+
+import androidx.annotation.RequiresApi;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -15,6 +18,7 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,6 +31,7 @@ public class Utils {
     private Utils() {
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     public static List<News> fetchNewsData(String requestUrl) {
         URL url = createUrl(requestUrl);
         String jsonResponse = null;
@@ -35,9 +40,8 @@ public class Utils {
         } catch (IOException e) {
             Log.e(LOG_TAG, "Problem making the HTTP request.", e);
         }
-        
-        List<News> newsList = extractFeatureFromJSON(jsonResponse);
-        return newsList;
+
+        return extractFeatureFromJSON(jsonResponse);
     }
 
     private static URL createUrl(String stringUrl) {
@@ -50,6 +54,7 @@ public class Utils {
         return url;
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     private static String makeHttpRequest(URL url) throws IOException {
         String jsonResponse = "";
         if (url == null) {
@@ -84,10 +89,11 @@ public class Utils {
         return jsonResponse;
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     private static String readFromStream(InputStream inputStream) throws IOException {
         StringBuilder output = new StringBuilder();
         if (inputStream != null) {
-            InputStreamReader inputStreamReader = new InputStreamReader(inputStream, Charset.forName("UTF-8"));
+            InputStreamReader inputStreamReader = new InputStreamReader(inputStream, StandardCharsets.UTF_8);
             BufferedReader reader = new BufferedReader(inputStreamReader);
             String line = reader.readLine();
             while (line != null) {

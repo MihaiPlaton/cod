@@ -1,5 +1,6 @@
 package news;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -7,6 +8,7 @@ import android.graphics.Color;
 import android.net.Uri;
 import android.preference.PreferenceManager;
 
+import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -31,8 +33,8 @@ import java.util.TimeZone;
 
 
 public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
-    private Context context;
-    private List<News> newsList;
+    private final Context context;
+    private final List<News> newsList;
     private SharedPreferences sharedPrefs;
 
 
@@ -41,6 +43,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
         this.newsList = newsList;
     }
 
+    @NonNull
     @Override
     public NewsAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.news_card_item, parent, false);
@@ -52,15 +55,15 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
         return newsList.size();
     }
 
-    class ViewHolder extends RecyclerView.ViewHolder {
-        private TextView titleTextView;
-        private TextView sectionTextView;
-        private TextView authorTextView;
-        private TextView dateTextView;
-        private ImageView thumbnailImageView;
-        private ImageView shareImageView;
-        private TextView trailTextView;
-        private CardView cardView;
+    static class ViewHolder extends RecyclerView.ViewHolder {
+        private final TextView titleTextView;
+        private final TextView sectionTextView;
+        private final TextView authorTextView;
+        private final TextView dateTextView;
+        private final ImageView thumbnailImageView;
+        private final ImageView shareImageView;
+        private final TextView trailTextView;
+        private final CardView cardView;
 
         ViewHolder(View itemView) {
             super(itemView);
@@ -76,7 +79,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         final News currentNews = newsList.get(position);
         sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
         setColorTheme(holder);
@@ -209,7 +212,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
     }
 
     private String formatDate(String dateStringUTC) {
-        SimpleDateFormat simpleDateFormat =
+        @SuppressLint("SimpleDateFormat") SimpleDateFormat simpleDateFormat =
                 new SimpleDateFormat("yyyy-MM-dd'T'kk:mm:ss'Z'");
         Date dateObject = null;
         try {
@@ -232,7 +235,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
     }
 
     private static long getDateInMillis(String formattedDate) {
-        SimpleDateFormat simpleDateFormat =
+        @SuppressLint("SimpleDateFormat") SimpleDateFormat simpleDateFormat =
                 new SimpleDateFormat("MMM d, yyyy  h:mm a");
         long dateInMillis;
         Date dateObject;

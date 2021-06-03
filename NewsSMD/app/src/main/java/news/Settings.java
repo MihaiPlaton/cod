@@ -1,5 +1,6 @@
 package news;
 
+import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -102,14 +103,14 @@ public class Settings extends AppCompatActivity {
 
 
         private String formatDate(String dateString) {
-            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-M-d");
+            @SuppressLint("SimpleDateFormat") SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-M-d");
             Date dateObject = null;
             try {
                 dateObject = simpleDateFormat.parse(dateString);
             } catch (ParseException e) {
                 e.printStackTrace();
             }
-            SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+            @SuppressLint("SimpleDateFormat") SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
             return df.format(dateObject);
         }
 
@@ -143,10 +144,9 @@ public class Settings extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                finish();
-                return true;
+        if (item.getItemId() == android.R.id.home) {
+            finish();
+            return true;
         }
         return super.onOptionsItemSelected(item);
     }
