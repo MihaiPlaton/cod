@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 
-import com.example.android.newsfeed.R;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabLayout;
 import androidx.core.view.GravityCompat;

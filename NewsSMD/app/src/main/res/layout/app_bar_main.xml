@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.android.newsfeed.news.MainActivity">
+    tools:context="news.MainActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
@@ -19,7 +19,6 @@
             android:background="@android:color/white"
             app:popupTheme="@style/AppTheme.PopupOverlay" />
 
-        <!-- TabLayout that provides a horizontal layout to display tabs -->
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/sliding_tabs"
             style="@style/CategoryTab"

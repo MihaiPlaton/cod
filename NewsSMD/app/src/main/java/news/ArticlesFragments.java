@@ -18,7 +18,6 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.android.newsfeed.R;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -5,7 +5,6 @@ import androidx.annotation.NonNull;
 import androidx.loader.content.Loader;
 import android.util.Log;
 
-import com.example.android.newsfeed.R;
 
 import java.util.List;
 

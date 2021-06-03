@@ -21,7 +21,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.example.android.newsfeed.R;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

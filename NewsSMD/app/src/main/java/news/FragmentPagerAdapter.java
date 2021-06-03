@@ -4,7 +4,6 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import android.content.Context;
 
-import com.example.android.newsfeed.R;
 
 public class FragmentPagerAdapter extends androidx.fragment.app.FragmentPagerAdapter {
     private Context mContext;

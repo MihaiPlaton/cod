@@ -5,7 +5,6 @@ import android.content.SharedPreferences;
 import android.net.Uri;
 import android.preference.PreferenceManager;
 
-import com.example.android.newsfeed.R;
 
 import static news.Constants.API_KEY;
 import static news.Constants.API_KEY_PARAM;
