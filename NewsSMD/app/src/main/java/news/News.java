@@ -1,43 +1,46 @@
 package news;
 
 public class News {
-    private String mTitle;
-    private String mSection;
-    private String mAuthor;
-    private String mDate;
-    private String mUrl;
-    private String mThumbnail;
-    private String mTrailTextHtml;
+    private final String mtitle;
+    private final String murl;
+    private final String mthumbnail;
+    private final String mtrailtexthtml;
+    private final String msection;
+    private final String mauthor;
+    private final String mdate;
+
 
     public News(String title, String section, String author, String date, String url, String thumbnail, String trailText) {
-        mTitle = title;
-        mSection = section;
-        mAuthor = author;
-        mDate = date;
-        mUrl = url;
-        mThumbnail = thumbnail;
-        mTrailTextHtml = trailText;
+        mtitle = title;
+        murl = url;
+        mthumbnail = thumbnail;
+        mtrailtexthtml = trailText;
+        msection = section;
+        mauthor = author;
+        mdate = date;
+
     }
 
     public String getTitle() {
-        return mTitle;
-    }
-    public String getSection() {
-        return mSection;
-    }
-    public String getAuthor() {
-        return mAuthor;
-    }
-    public String getDate() {
-        return mDate;
+        return mtitle;
     }
     public String getUrl() {
-        return mUrl;
+        return murl;
     }
     public String getThumbnail() {
-        return mThumbnail;
+        return mthumbnail;
     }
     public String getTrailTextHtml() {
-        return mTrailTextHtml;
+        return mtrailtexthtml;
     }
+    public String getSection() {
+        return msection;
+    }
+    public String getAuthor() {
+        return mauthor;
+    }
+    public String getDate() {
+        return mdate;
+    }
+
 }

@@ -1,7 +1,9 @@
 package news;
 
+import androidx.annotation.RequiresApi;
 import androidx.loader.content.AsyncTaskLoader;
 import android.content.Context;
+import android.os.Build;
 
 import java.util.List;
 
@@ -21,13 +23,13 @@ public class NewsLoader extends AsyncTaskLoader<List<News>> {
         forceLoad();
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
     public List<News> loadInBackground() {
         if (Url == null) {
             return null;
         }
 
-        List<News> newsData = Utils.fetchNewsData(Url);
-        return newsData;
+        return Utils.fetchNewsData(Url);
     }
 }
