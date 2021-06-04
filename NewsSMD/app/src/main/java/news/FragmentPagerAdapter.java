@@ -1,5 +1,6 @@
 package news;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import android.content.Context;
@@ -13,6 +14,7 @@ public class FragmentPagerAdapter extends androidx.fragment.app.FragmentPagerAda
         mContext = context;
     }
 
+    @NonNull
     @Override
     public Fragment getItem(int position) {
         switch (position) {
