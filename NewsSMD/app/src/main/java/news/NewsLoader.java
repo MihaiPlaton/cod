@@ -8,7 +8,7 @@ import java.util.List;
 
 public class NewsLoader extends AsyncTaskLoader<List<News>> {
     private static final String LOG_TAG = NewsLoader.class.getName();
-    private String Url;
+    private final String Url;
 
     
     public NewsLoader(Context context, String url) {
